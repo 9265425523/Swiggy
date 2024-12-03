@@ -18,11 +18,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-</head>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        
+    </head>
 
 <style>
-    body {}
-
     .header {
         position: sticky;
         top: 0;
@@ -111,16 +112,191 @@
         position: absolute;
         top: 0;
     }
-    .d-flex .row .col-lg-6 {
-    color: var(--e-global-color-cda8d89);
+
+    .flex .row .col-lg-6,
+    .col-lg-5 .p {
+        color: var(--e-global-color-cda8d89);
+        font-family: "Gilroy", Sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        margin: auto;
+        line-height: 24px;
+        letter-spacing: -0.03px;
+        margin: auto;
+        color: rgb(45, 44, 44);
+        padding-right: 20px;
+        opacity: 0.7;
+    }
+
+    .nav button {
+        border: none;
+        outline: none;
+        background-color: transparent;
+    }
+
+    .active-btn {
+        color: #FF5200;
+        font-weight: bold;
+        font-size: 22px;
+        transition: .3s;
+    }
+
+    .nav button:focus {
+        color: #FF5200;
+        font-weight: bold;
+        font-size: 22px;
+        transition: .3s;
+    }
+
+    .nav button:focus::after {
+        content: '→';
+        font-size: 1.2em;
+        margin-left: 5px;
+        font-weight: bold;
+    }
+
+    .get-know {
+        margin-top: 10%;
+    }
+
+    .get-know .container .flex {
+        display: flex;
+    }
+
+    .nav-pills {
+        flex-direction: column;
+    }
+
+    .nav-pills button {
+        height: 100px;
+    }
+
+    @media screen and (min-width:601px) {
+        .get-know .container {
+            height: 500px;
+            border-bottom: 1px solid rgb(195, 177, 177);
+        }
+
+    }
+
+    @media screen and (max-width:600px) {
+
+        .nav-pills {
+            flex-direction: row;
+            justify-content: space-around;
+            height: 70px;
+        }
+
+        .nav-pills button {
+            height: 50px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding: 7px;
+        }
+
+        .nav-pills button:focus {
+            background-color: #FF5200;
+            color: white;
+            font-size: 14px;
+            transition: .3s;
+
+        }
+
+        .get-know .container .flex {
+            display: block;
+        }
+    }
+
+    .industry .col-lg-9 {
+        border-radius: 15px;
+        overflow: hidden;
+        border: 1px solid black;
+        width: 90%;
+        height: 300px;
+        margin: auto;
+    }
+
+    .industry img:hover {
+        transform: scale(1.1);
+        /* Scale the image */
+
+    }
+
+    .industry .col-lg-6 p {
+        color: var(--e-global-color-cda8d89);
+        font-family: "Gilroy", Sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: -0.03px;
+        margin: auto;
+        color: rgb(45, 44, 44);
+        padding-right: 20px;
+        opacity: 0.7;
+        margin: auto;
+    }
+
+    .top {
+        display: flex;
+        text-align: center;
+    }
+
+    .line {
+        width: 60px;
+        height: 1.5px;
+        background-color: #FF5200;
+        margin-top: 20px;
+    }
+
+    .counter .col-lg-2 {
+        text-align: center;
+        margin: 20px;
+        padding: 0px 10px 0px 0px;
+    }
+
+    .counter {
+        padding-left: 30px;
+        margin-top: 7%;
+        padding-bottom: 20px;
+    }
+
+    .counter h2 {
+        --counter-prefix-grow: 0;
+    --counter-suffix-grow: 1;
+    --counter-number-grow: 0;
+    gap: 0px;
+     color: #1ba672;
+    font-family: "Gilroy", Sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 40px;
+    letter-spacing: -0.8px;
+    }
+
+    .counter p {
+        justify-content: start;
     font-family: "Gilroy", Sans-serif;
     font-size: 18px;
     font-weight: 500;
     line-height: 24px;
-    letter-spacing: -0.03px;
-    margin: auto;
-    /* padding: 70px; */
+    letter-spacing: -0.3px;
     }
+    .e-n-carousel {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #ddd;
+  /* Ensure slide fills container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 </style>
 
 <body>
@@ -190,10 +366,7 @@
             </div>
 
             <div class="about-icon bg-transparent">
-
-
                 <div class="col-lg-8 p-5 pb-5 m-auto ">
-
                     <img src="image/instamart-1-282x300.webp" class="row mx-auto   instamart" alt=""><br>
                     <div class="row justify-content-around">
                         <img src="image/food.webp" alt="">
@@ -207,17 +380,17 @@
 
                         <img src="image/minis-1-283x300.webp" class="col-lg-3" alt="">
                     </div>
-
-
-
-
                 </div>
-
             </div>
 
             <div class="ipo-deliver mt-5">
-                <div class="top text-center">
-                    <h2 class="fw-bold">IPO DELIVERED-NOVEMBER 2024</h2>
+                <div class="top row m-auto ">
+                    <div class="col-lg-6   m-auto d-flex">
+                        <div class="line"></div>
+                        <h2 class="fw-bold">IPO DELIVERED-NOVEMBER 2024</h2>
+                        <div class="line"></div>
+                    </div>
+
                 </div>
 
                 <div class="video mt-5 m-auto row ">
@@ -232,61 +405,84 @@
             </div>
 
 
-            <div class="get-know mt-5">
+            <div class="get-know ">
                 <div class="container">
 
-
-                    <div class="top text-center">
-                        <h2 class="fw-bold">GET TO KNOW US</h2>
-                    </div>
-                    <div class="d-flex mt-5 align-items-start">
-                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
-                            aria-orientation="vertical">
-                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
-                                data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
-                                aria-selected="true">Home</button>
-                            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
-                                data-bs-target="#v-pills-profile" type="button" role="tab"
-                                aria-controls="v-pills-profile" aria-selected="false">Profile</button>
-                            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
-                                data-bs-target="#v-pills-messages" type="button" role="tab"
-                                aria-controls="v-pills-messages" aria-selected="false">Messages</button>
+                    <div class="top row m-auto ">
+                        <div class="col-lg-6  m-auto d-flex">
+                            <div class="line"></div>
+                            <h2 class="fw-bold">GET TO KNOW US</h2>
+                            <div class="line"></div>
                         </div>
-                        <div class="tab-content" id="v-pills-tabContent">
+
+                    </div>
+                    <div class="flex mt-3 pb-5 align-items-start">
+                        <div class="nav mb-5 col-lg-2   nav-pills me-3" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+                            <button class="active active-btn border-bottom" id="v-pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
+                                aria-selected="true">Mission</button>
+                            <button class="border-bottom dicable-btn" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-profile" type="button" role="tab"
+                                aria-controls="v-pills-profile" aria-selected="false">Vision</button>
+                            <button id="v-pills-messages-tab dicable-btn" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-messages" type="button" role="tab"
+                                aria-controls="v-pills-messages" aria-selected="false">Values</button>
+                        </div>
+                        <div class="tab-content " id="v-pills-tabContent">
                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                                 aria-labelledby="v-pills-home-tab">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="m-auto">Our mission is to elevate the quality of life of the urban consumer by offering unparalleled convenience. Convenience is what makes us tick. It’s what makes us get out of bed and say, “Let’s do this</p>
+                                <div class="row m-auto mt-3">
+                                    <div class="col-lg-6   my-auto">
+                                        <p class="m-auto">Our mission is to elevate the quality of life of the urban
+                                            consumer by offering unparalleled convenience. Convenience is what makes us
+                                            tick. It’s what makes us get out of bed and say, “Let’s do this</p>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <img class="m-auto" src="image/Mission.png" alt="">
+                                    <div class="col-lg-6 mt-3">
+                                        <img class="m-auto col-11" src="image/Mission.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                             
+
 
                             <div class="tab-pane fade show" id="v-pills-profile" role="tabpanel"
                                 aria-labelledby="v-pills-profile-tab">
-                                <div class="row m-auto">
-                                    <div class="col-lg-6">
-                                        <iframe class="elementor-video  m-auto  " frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Swiggy Vision" width="640" height="360" src="https://www.youtube.com/embed/fLz2fgU_x1Q?controls=1&rel=0&playsinline…=0&autoplay=0&enablejsapi=1&origin=https%3A%2F%2Fwww.swiggy.com&widgetid=1" id="widget2" style="border-radius: 50px;"></iframe> 
+                                <div class="row mt-3 m-auto">
+                                    <div class="col-lg-6 m-auto mt-3">
+                                        <iframe class="elementor-video  m-auto  " frameborder="0" allowfullscreen
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin" title="Swiggy Vision"
+                                            width="640" height="360"
+                                            src="https://www.youtube.com/embed/fLz2fgU_x1Q?controls=1&rel=0&playsinline…=0&autoplay=0&enablejsapi=1&origin=https%3A%2F%2Fwww.swiggy.com&widgetid=1"
+                                            id="widget2" style="border-radius: 50px;"></iframe>
                                     </div>
-                                     
+
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
                                 aria-labelledby="v-pills-messages-tab">
-                                <div class="row mx-5">
-                                    <div class="col-lg-5   m-auto">
-                                        <p class=" "> Our actions are strongly defined by the Swiggy values. Through ups, downs, and everything in between; Swiggsters put these values into practice in their everyday ways of working. Read on to get a taste of how Swiggsters live and breathe these values and how it forms the backbone of our culture.</p>
+                                <div class="row mt-3 m-auto mx-5">
+                                    <div class="col-lg-5    my-auto">
+                                        <p class="p"> Our actions are strongly defined by the Swiggy values. Through
+                                            ups, downs, and everything in between; Swiggsters put these values into
+                                            practice in their everyday ways of working. Read on to get a taste of how
+                                            Swiggsters live and breathe these values and how it forms the backbone of
+                                            our culture.</p>
 
-                                        <a href="" class="btn btn-danger">Know More</a>
+                                        <a href="" class="btn btn-danger mt-5">Know More</a>
                                     </div>
-                                    <div class="col-lg-5">
-                                        <div class="html5-video-player      ytp-exp-bottom-control-flexbox ytp-modern-caption ytp-livebadge-color-control ytp-title-enable-channel-logo ytp-fine-scrubbing-exp ytp-embed ytp-embed-playlist ytp-touch-mode ytp-fit-cover-video paused-mode" tabindex="-1" id="movie_player" data-version="/s/player/b46bb280/player_ias.vflset/en_US/base.js" aria-label="YouTube Video Player">
-                                        <iframe width="442" height="330" src="https://www.youtube.com/embed/TjEK0MbJUz4" title="Swiggy Values Unboxed - 2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen    style="border-radius: 50px;"></iframe>
-                                    </div>
+                                    <div class="col-lg-5 mt-3">
+                                        <div class="html5-video-player      ytp-exp-bottom-control-flexbox ytp-modern-caption ytp-livebadge-color-control ytp-title-enable-channel-logo ytp-fine-scrubbing-exp ytp-embed ytp-embed-playlist ytp-touch-mode ytp-fit-cover-video paused-mode"
+                                            tabindex="-1" id="movie_player"
+                                            data-version="/s/player/b46bb280/player_ias.vflset/en_US/base.js"
+                                            aria-label="YouTube Video Player">
+                                            <iframe width="442" height="330"
+                                                src="https://www.youtube.com/embed/TjEK0MbJUz4"
+                                                title="Swiggy Values Unboxed - 2021" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                                                style="border-radius: 50px;"></iframe>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -295,10 +491,154 @@
                     </div>
                 </div>
             </div>
+
+            <div class="industry container mt-5">
+                <div class="top row m-auto  ">
+                    <div class="col-lg-6   m-auto d-flex">
+                        <div class="line"></div>
+                        <h2 class="fw-bold">INDUSTRY PIONEER</h2>
+                        <div class="line"></div>
+                    </div>
+
+                </div>
+                <div class="row py-5 m-auto">
+                    <div class="col-lg-6  m-auto">
+
+                        <p>Being among the first few entrants, Swiggy has successfully pioneered the hyperlocal commerce
+                            industry in India, launching Food Delivery in 2014 and Quick Commerce in 2020. Due to the
+                            pioneering status of Swiggy, it is well-recognised as a leader in innovation in hyperlocal
+                            commerce and as a brand synonymous with the categories it is present in.</p>
+
+
+                    </div>
+                    <div class="col-lg-6 m-auto  image">
+                        <div class="col-lg-9">
+                            <img class="" src="image/Group-1116602947-768x507.webp" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="counter mt-5 row justify-content-around  m-auto">
+                <div class="col-lg-2 col-md-3 col-sm-6 border-end">
+                    <h2 class="counter-value" data-target="3">0</h2><span class="d-none">&nbsp; Billion</span>
+                    <p>Orders delivered</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 border-end">
+                    <h2 class="counter-value" data-target="220">0</h2><span class="d-none">&nbsp;k+</span>
+                    <p>Restaurant partners</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 border-end">
+                    <h2 class="counter-value" data-target="520">0</h2><span class="d-none">&nbsp;k+</span>
+                    <p>Delivery partners</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <h2 class="counter-value" data-target="680">0</h2><span class="d-none">&nbsp;+</span>
+                    <p>Cities in India</p>
+                </div>
+            </div>
+
+
+            <div class="swiper mb-5 e-n-carousel">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="image/abou-hero2.webp" alt=""></div>
+                  <div class="swiper-slide">Slide 2</div>
+                  <div class="swiper-slide">Slide 3</div>
+                  <!-- Add more slides as needed -->
+                </div>
+                <!-- Optional navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Optional pagination -->
+                <div class="swiper-pagination"></div>
+              </div>
+              
         </div>
-
-
     </div>
 </body>
+<script>
+    $(document).ready(function () {
+        $(".dicable-btn").click(function () {
+            $(".active-btn").removeClass("active-btn");
+        })
+    })
+</script>
+<script>
+    const counters = document.querySelectorAll('.counter-value');
+    let scrolled = false;
+
+    function animateCounters() {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const speed = 2000; // Total duration in milliseconds
+            const increment = target / (speed / 20); // Adjust increment based on speed
+            const suffix = counter.nextElementSibling ? counter.nextElementSibling.innerText : '';
+
+            const updateCount = () => {
+                const current = +counter.innerText;
+                if (current < target) {
+                    counter.innerText = Math.ceil(current + increment);
+                    setTimeout(updateCount, 10); // Animation step duration
+                } else {
+                    counter.innerText = target; // Ensure final value matches target
+                    if (suffix) {
+                        counter.innerText += suffix; // Append suffix
+                    }
+                }
+            };
+            updateCount();
+        });
+    }
+
+    function isVisible(element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!scrolled) {
+            const counterSection = document.querySelector('.counter');
+            if (isVisible(counterSection)) {
+                scrolled = true;
+                animateCounters();
+            }
+        }
+    });
+
+    const swiper = new Swiper('.e-n-carousel', {
+  direction: 'horizontal', // Default is horizontal; change to 'vertical' for vertical scrolling
+  loop: true, // Enable continuous loop mode
+  autoplay: {
+    delay: 3000, // Auto-slide delay in milliseconds
+    disableOnInteraction: false, // Continue autoplay after user interaction
+  },
+  pagination: {
+    el: '.swiper-pagination', // Enable pagination dots
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next', // Next button
+    prevEl: '.swiper-button-prev', // Previous button
+  },
+  slidesPerView: 1, // Number of slides visible at once
+  spaceBetween: 10, // Space between slides in pixels
+
+  breakpoints: {
+  640: {
+    slidesPerView: 1,
+    spaceBetween: 10,
+  },
+  768: {
+    slidesPerView: 2,
+    spaceBetween: 20,
+  },
+  1024: {
+    slidesPerView: 3,
+    spaceBetween: 30,
+  },
+}
+
+});
+
+</script>
 
 </html>
